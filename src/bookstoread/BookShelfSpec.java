@@ -30,4 +30,5 @@ public class BookShelfSpec {
         List<String> books = shelf.books();
         assertTrue(books.isEmpty(), () -> "BookShelf should be empty.");
     }
+
 }
