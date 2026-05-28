@@ -13,6 +13,6 @@ public class BookShelf {
     }
 
     public void add(String... booksToAdd) {
-        Arrays.stream(booksToAdd).forEach(books::add);
+        books.addAll(Arrays.asList(booksToAdd));
     }
 }
