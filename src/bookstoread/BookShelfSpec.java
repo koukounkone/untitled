@@ -20,7 +20,7 @@ public class BookShelfSpec {
     @Test
     public void shelfEmptyWhenNoBookAdded() throws Exception {
 
-        List<String> books = shelf.books();
+        List<String> books = shelf.Book();
         assertTrue(books.isEmpty(), () -> "BookShelf should be empty.");
     }
 
@@ -28,7 +28,7 @@ public class BookShelfSpec {
     void bookshelfContainsTwoBooksWhenTwoBooksAdded() {
 
         shelf.add("Effective Java", "Code Complete");
-        List<String> books = shelf.books();
+        List<String> books = shelf.Book();
         assertEquals(2, books.size(), () -> "BookShelf should have two books.");
     }
 
@@ -36,7 +36,7 @@ public class BookShelfSpec {
     public void emptyBookShelfWhenAddIsCalledWithoutBooks() {
 
         shelf.add();
-        List<String> books = shelf.books();
+        List<String> books = shelf.Book();
         assertTrue(books.isEmpty(), () -> "BookShelf should be empty.");
     }
 
@@ -44,7 +44,7 @@ public class BookShelfSpec {
     void booksReturnedFromBookShelfIsImmutableForClient() {
 
         shelf.add("Effective Java", "Code Complete");
-        List<String> books = shelf.books();
+        List<String> books = shelf.Book();
         try {
             books.add("The Mythical Man-Month");
             fail(() -> "Should not be able to add book to books");
@@ -63,7 +63,7 @@ public class BookShelfSpec {
     void booksInBookShelfAreInInsertionOrderAfterCallingArrange() {
         shelf.add("Effective Java", "Code Complete", "The Mythical Man-Month");
         shelf.arrange();
-        List<String> books = shelf.books();
+        List<String> books = shelf.Book();
         assertEquals(Arrays.asList("Effective Java", "Code Complete", "The Mythical Man-Month"), books, () -> "Books in bookshelf are in insertion order");
     }
 
